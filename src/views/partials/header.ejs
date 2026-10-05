@@ -20,13 +20,12 @@
 </head>
 <body class="<%= bodyClass %>">
     <header>
-        <p><%- greeting %></p>
+        <%- greeting %>
         <nav aria-label="Main navigation">
             <ul>
                 <li><a href="/"<% if (currentPage === 'home') { %> aria-current="page"<% } %>>Home</a></li>
                 <li><a href="/about"<% if (currentPage === 'about') { %> aria-current="page"<% } %>>About</a></li>
                 <li><a href="/catalog"<% if (currentPage === 'catalog') { %> aria-current="page"<% } %>>Course Catalog</a></li>
-                <li><a href="/products"<% if (currentPage === 'products') { %> aria-current="page"<% } %>>Products</a></li>
                 <li><a href="/demo"<% if (currentPage === 'demo') { %> aria-current="page"<% } %>>Middleware Demo</a></li>
             </ul>
         </nav>

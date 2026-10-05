@@ -122,17 +122,6 @@ body {
             }
         }
 
-        .photo-placeholder {
-            aspect-ratio: 1;
-            display: grid;
-            place-items: center;
-            border: 1px dashed #527c89;
-            color: #365662;
-            padding: 12px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
         @media (max-width: 600px) {
             grid-template-columns: minmax(0, 1fr);
         }
