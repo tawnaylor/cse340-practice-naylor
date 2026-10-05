@@ -48,6 +48,50 @@ app.get('/products', (req, res) => {
     res.render('products', { title });
 });
 
+app.get('/test-error', (req, res, next) => {
+    const err = new Error('This is a test error');
+    err.status = 500;
+    next(err);
+});
+
+app.use((req, res, next) => {
+    const err = new Error('Page Not Found');
+    err.status = 404;
+    next(err);
+});
+
+app.use((err, req, res, next) => {
+    console.error(err);
+
+    if (res.headersSent || res.writableEnded) {
+        return next(err);
+    }
+
+    const status = err.status || 500;
+    const template = status === 404 ? '404' : '500';
+    const context = {
+        title: status === 404 ? 'Page Not Found' : 'Server Error',
+        error: NODE_ENV === 'production' ? 'An error occurred' : err.message,
+        stack: NODE_ENV === 'production' ? null : err.stack,
+        NODE_ENV,
+        currentPage: null
+    };
+
+    res.status(status).render(`errors/${template}`, context, (renderErr, html) => {
+        if (renderErr) {
+            console.error('Failed to render error template:', renderErr);
+
+            if (res.headersSent || res.writableEnded) {
+                return next(renderErr);
+            }
+
+            return res.status(status).send(`<h1>Error ${status}</h1><p>An error occurred.</p>`);
+        }
+
+        res.send(html);
+    });
+});
+
 if (NODE_ENV.includes('dev')) {
     try {
         const ws = await import('ws');

@@ -67,6 +67,27 @@ body {
         }
     }
 
+    .error-page {
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        details {
+            margin-top: 24px;
+
+            summary {
+                cursor: pointer;
+            }
+
+            pre {
+                white-space: pre-wrap;
+                overflow-wrap: anywhere;
+            }
+        }
+    }
+
     .about-layout {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 200px;
