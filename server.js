@@ -54,6 +54,13 @@ const app = express();
 /**
  * Configure Express Middleware
  */
+app.use((req, res, next) => {
+    if (!req.path.startsWith('/.')) {
+        console.log(`${req.method} ${req.url}`);
+    }
+    next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src/views'));
@@ -63,8 +70,41 @@ app.set('views', path.join(__dirname, 'src/views'));
  */
 app.use((req, res, next) => {
     res.locals.NODE_ENV = NODE_ENV.toLowerCase() || 'production';
+    res.locals.currentYear = new Date().getFullYear();
     next();
 });
+
+app.use((req, res, next) => {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+        res.locals.greeting = 'Good morning!';
+    } else if (currentHour <= 17) {
+        res.locals.greeting = 'Good afternoon!';
+    } else {
+        res.locals.greeting = 'Good evening!';
+    }
+
+    next();
+});
+
+app.use((req, res, next) => {
+    const themes = ['blue-theme', 'green-theme', 'red-theme'];
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+    res.locals.bodyClass = randomTheme;
+    next();
+});
+
+app.use((req, res, next) => {
+    res.locals.queryParams = req.query || {};
+    next();
+});
+
+const addDemoHeaders = (req, res, next) => {
+    res.setHeader('X-Demo-Page', 'true');
+    res.setHeader('X-Middleware-Demo', 'Route-specific middleware is active');
+    next();
+};
 
 /**
  * Declare Routes
@@ -122,6 +162,12 @@ app.get('/catalog/:courseId', (req, res, next) => {
         title: `${course.id} - ${course.title}`,
         course: { ...course, sections: sortedSections },
         currentSort: sortBy
+    });
+});
+
+app.get('/demo', addDemoHeaders, (req, res) => {
+    res.render('demo', {
+        title: 'Middleware Demo Page'
     });
 });
 

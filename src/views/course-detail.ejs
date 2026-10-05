@@ -5,6 +5,13 @@
         <p class="course-meta"><%= course.id %> &bull; <%= course.credits %> credits</p>
         <p class="course-description"><%= course.description %></p>
     </div>
+    <div class="sort-message">
+        <% if (['time', 'professor', 'room'].includes(queryParams.sort)) { %>
+            <p>Currently sorted by: <%= queryParams.sort %></p>
+        <% } else { %>
+            <p>No sorting applied, using default sorting by time.</p>
+        <% } %>
+    </div>
     <div class="sections">
         <div class="sections-header">
             <h2>Available Sections</h2>
