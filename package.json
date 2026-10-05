@@ -1,6 +1,7 @@
 {
   "name": "cse340-practice-naylor",
   "dependencies": {
+    "ejs": "^7.0.1",
     "express": "^5.2.1"
   },
   "type": "module",
