@@ -1,0 +1,102 @@
+html, body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+body {
+    color: #24343b;
+    max-width: 960px;
+    margin-inline: auto;
+    line-height: 1.6;
+
+    h1 {
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    nav {
+        border-bottom: 1px solid #6d9ba9;
+        margin-bottom: 32px;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 0;
+        }
+
+        li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+
+            &:hover {
+                color: #0066cc;
+            }
+
+            &[aria-current="page"] {
+                text-decoration: underline;
+                text-underline-offset: 6px;
+            }
+
+            &:focus-visible {
+                outline: 2px solid #0066cc;
+                outline-offset: 4px;
+            }
+        }
+    }
+
+    main {
+        max-width: 720px;
+
+        h2 {
+            margin-top: 28px;
+            font-size: 1.25rem;
+        }
+
+        a {
+            color: #164d65;
+        }
+    }
+
+    .about-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 200px;
+        align-items: start;
+        gap: 32px;
+
+        figure {
+            margin: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 4px;
+            }
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            border: 1px dashed #527c89;
+            color: #365662;
+            padding: 12px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+}
