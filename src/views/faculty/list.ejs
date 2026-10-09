@@ -1,0 +1,24 @@
+<%- include('../partials/header', { currentPage: 'faculty' }) %>
+
+<main>
+    <h1>Faculty Directory</h1>
+
+    <p>
+        Sort by:
+        <a href="/faculty?sort=name"<% if (currentSort === 'name') { %> aria-current="true"<% } %>>Name</a> |
+        <a href="/faculty?sort=department"<% if (currentSort === 'department') { %> aria-current="true"<% } %>>Department</a> |
+        <a href="/faculty?sort=title"<% if (currentSort === 'title') { %> aria-current="true"<% } %>>Title</a>
+    </p>
+
+    <ul class="faculty-list">
+        <% faculty.forEach(member => { %>
+            <li>
+                <a href="/faculty/<%= member.id %>"><%= member.name %></a>
+                <span><%= member.department %></span>
+                <span><%= member.title %></span>
+            </li>
+        <% }); %>
+    </ul>
+</main>
+
+<%- include('../partials/footer') %>
