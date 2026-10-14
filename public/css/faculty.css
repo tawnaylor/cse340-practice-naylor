@@ -1,0 +1,108 @@
+/* Faculty directory styles, matching the course catalog look */
+.faculty-sort {
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    color: #666;
+
+    a {
+        color: #2c5aa0;
+        text-decoration: none;
+        padding: 0.25rem 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &[aria-current="true"] {
+            background: #2c5aa0;
+            border-color: #2c5aa0;
+            color: #fff;
+        }
+    }
+}
+
+.faculty-list {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+
+    .faculty-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1.5rem;
+        background: #fff;
+        transition: box-shadow 0.2s ease;
+
+        &:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin: 0 0 0.5rem 0;
+
+            a {
+                color: #2c5aa0;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .faculty-meta {
+            color: #666;
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+}
+
+.faculty-detail {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+        color: #2c5aa0;
+        margin-bottom: 0.5rem;
+    }
+
+    .faculty-meta {
+        color: #666;
+        font-weight: 500;
+        margin: 0 0 1.5rem 0;
+    }
+
+    dl {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.75rem 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1.5rem;
+        background: #fff;
+        margin: 0 0 1.5rem 0;
+    }
+
+    dt {
+        font-weight: 600;
+        color: #444;
+    }
+
+    dd {
+        margin: 0;
+    }
+
+    a {
+        color: #2c5aa0;
+    }
+}
