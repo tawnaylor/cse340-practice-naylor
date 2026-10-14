@@ -2,20 +2,20 @@
 
 <main>
     <h1>Faculty Directory</h1>
+    <p>Browse our faculty and click a name to see office, phone, and email details.</p>
 
-    <p>
-        Sort by:
-        <a href="/faculty?sort=name"<% if (currentSort === 'name') { %> aria-current="true"<% } %>>Name</a> |
-        <a href="/faculty?sort=department"<% if (currentSort === 'department') { %> aria-current="true"<% } %>>Department</a> |
+    <nav class="faculty-sort" aria-label="Sort faculty">
+        <span>Sort by:</span>
+        <a href="/faculty?sort=name"<% if (currentSort === 'name') { %> aria-current="true"<% } %>>Name</a>
+        <a href="/faculty?sort=department"<% if (currentSort === 'department') { %> aria-current="true"<% } %>>Department</a>
         <a href="/faculty?sort=title"<% if (currentSort === 'title') { %> aria-current="true"<% } %>>Title</a>
-    </p>
+    </nav>
 
     <ul class="faculty-list">
         <% faculty.forEach(member => { %>
-            <li>
-                <a href="/faculty/<%= member.id %>"><%= member.name %></a>
-                <span><%= member.department %></span>
-                <span><%= member.title %></span>
+            <li class="faculty-card">
+                <h3><a href="/faculty/<%= member.id %>"><%= member.name %></a></h3>
+                <p class="faculty-meta"><%= member.title %> &bull; <%= member.department %></p>
             </li>
         <% }); %>
     </ul>
