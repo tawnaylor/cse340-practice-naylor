@@ -139,6 +139,15 @@
                 color: #555;
                 margin-bottom: 0.25rem;
             }
+
+            .section-professor a {
+                color: #2c5aa0;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }
