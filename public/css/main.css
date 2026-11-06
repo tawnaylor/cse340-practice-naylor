@@ -33,8 +33,18 @@ body {
     font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
     line-height: 1.7;
     color: var(--ink);
-    background:
-        linear-gradient(180deg, var(--sand) 0%, #dcebe0 100%) fixed;
+    background-color: var(--sand);
+
+    &.blue-theme { background-color: #e3f2fd; }
+    &.green-theme { background-color: #e8f5e8; }
+    &.red-theme { background-color: #ffebee; }
+
+    .greeting {
+        margin: 0 0 20px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--forest-dark);
+    }
 
     h1 {
         margin: 0 0 16px;
@@ -118,6 +128,19 @@ body {
             margin-top: 24px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+        }
+
+        .demo-section {
+            margin-bottom: 24px;
+            padding: 20px 24px;
+            background: var(--card);
+            border-left: 6px solid var(--moss);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+
+            h2 {
+                margin-top: 0;
+            }
         }
 
         details {

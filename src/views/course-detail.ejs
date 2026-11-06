@@ -17,6 +17,15 @@
             </div>
         </div>
 
+        <% if (Object.keys(queryParams).length > 0) { %>
+            <p class="query-info">
+                Query parameters:
+                <% Object.keys(queryParams).forEach(key => { %>
+                    <strong><%= key %></strong> = <%= queryParams[key] %>
+                <% }); %>
+            </p>
+        <% } %>
+
         <div class="section-list">
             <% course.sections.forEach(section => { %>
                 <div class="section-card">

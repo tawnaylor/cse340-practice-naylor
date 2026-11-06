@@ -70,6 +70,12 @@
     max-width: 800px;
     margin: 0 auto;
 
+    .query-info {
+        color: #666;
+        font-size: 0.9rem;
+        margin: 0 0 1rem 0;
+    }
+
     .sections-header {
         display: flex;
         justify-content: space-between;

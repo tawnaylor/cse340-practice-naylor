@@ -67,19 +67,69 @@ app.set('view engine', 'ejs');
 // Tell Express where to find your templates
 app.set('views', path.join(__dirname, 'src/views'));
 
-/**
- * Global template variables middleware
- *
- * Makes common variables available to all EJS templates without having to pass
- * them individually from each route handler
- */
+// Middleware to make NODE_ENV available to all templates
 app.use((req, res, next) => {
-    // Make NODE_ENV available to all templates
     res.locals.NODE_ENV = NODE_ENV.toLowerCase() || 'production';
 
     // Continue to the next middleware or route handler
     next();
 });
+
+// Middleware to log incoming requests
+app.use((req, res, next) => {
+    // Skip logging for routes that start with /. (like /.well-known/)
+    if (!req.path.startsWith('/.')) {
+        console.log(`${req.method} ${req.url}`);
+    }
+    next(); // Pass control to the next middleware or route
+});
+
+// Middleware to add global data to all templates
+app.use((req, res, next) => {
+    // Add current year for copyright
+    res.locals.currentYear = new Date().getFullYear();
+    next();
+});
+
+// Global middleware for time-based greeting
+app.use((req, res, next) => {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+        res.locals.greeting = '<p class="greeting">Good morning!</p>';
+    } else if (currentHour <= 17) {
+        res.locals.greeting = '<p class="greeting">Good afternoon!</p>';
+    } else {
+        res.locals.greeting = '<p class="greeting">Good evening!</p>';
+    }
+
+    next();
+});
+
+// Global middleware for random theme selection
+app.use((req, res, next) => {
+    const themes = ['blue-theme', 'green-theme', 'red-theme'];
+
+    // Pick a random index from 0 to themes.length - 1
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+
+    res.locals.bodyClass = randomTheme;
+    next();
+});
+
+// Global middleware to share query parameters with templates
+app.use((req, res, next) => {
+    // Make req.query available to all templates for debugging and conditional rendering
+    res.locals.queryParams = req.query || {};
+    next();
+});
+
+// Route-specific middleware that sets custom headers
+const addDemoHeaders = (req, res, next) => {
+    res.setHeader('X-Demo-Page', 'true');
+    res.setHeader('X-Middleware-Demo', 'This header was added by route-specific middleware');
+    next();
+};
 
 /**
  * Routes
@@ -147,12 +197,17 @@ app.get('/catalog/:courseId', (req, res, next) => {
             break;
     }
 
-    console.log(`Viewing course: ${courseId}, sorted by: ${sortBy}`);
-
     res.render('course-detail', {
         title: `${course.id} - ${course.title}`,
         course: { ...course, sections: sortedSections },
         currentSort: sortBy
+    });
+});
+
+// Demo page route with header middleware
+app.get('/demo', addDemoHeaders, (req, res) => {
+    res.render('demo', {
+        title: 'Middleware Demo Page'
     });
 });
 
