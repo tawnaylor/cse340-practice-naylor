@@ -13,16 +13,16 @@
     a {
         padding: 0.25rem 0.75rem;
         border-radius: 999px;
-        color: var(--forest);
+        color: var(--accent);
         text-decoration: none;
         font-weight: 600;
 
         &:hover {
-            background: #e8f3ea;
+            background: var(--accent-soft);
         }
 
         &.active {
-            background: var(--forest);
+            background: var(--accent);
             color: white;
         }
     }
@@ -35,22 +35,23 @@
 
     .faculty-card {
         padding: 1.25rem 1.5rem;
-        background: var(--card);
-        border-top: 5px solid var(--moss);
+        background: var(--ivory);
+        border: 1px solid var(--rule);
+        border-top: 3px solid var(--brass-light);
         border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        box-shadow: var(--shadow-soft);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:hover {
-            transform: translateY(-3px);
-            border-color: var(--clay);
+            border-top-color: var(--brass);
+            box-shadow: var(--shadow-lift);
         }
 
         h3 {
             margin: 0 0 0.5rem 0;
 
             a {
-                color: var(--forest-dark);
+                color: var(--accent-dark);
                 text-decoration: none;
 
                 &:hover {
@@ -62,7 +63,7 @@
         .faculty-title {
             margin: 0;
             font-weight: 600;
-            color: var(--clay);
+            color: var(--brass);
         }
 
         .faculty-department {
@@ -76,10 +77,11 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-    background: var(--card);
-    border-left: 6px solid var(--clay);
+    background: var(--ivory);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--brass);
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-soft);
 
     h1 {
         margin-bottom: 0.25rem;
@@ -99,17 +101,17 @@
 
         dt {
             font-weight: 700;
-            color: var(--forest);
+            color: var(--accent);
         }
 
         dd {
             margin: 0;
 
             a {
-                color: var(--forest-dark);
+                color: var(--accent-dark);
 
                 &:hover {
-                    color: var(--clay);
+                    color: var(--brass);
                 }
             }
         }
@@ -121,7 +123,7 @@
     text-align: center;
 
     a {
-        color: var(--forest);
+        color: var(--accent);
         font-weight: 600;
         text-decoration: none;
 
