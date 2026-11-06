@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Taw Naylor</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <h1>About Me</h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/products">Products</a></li>
-        </ul>
-    </nav>
+<%- include('partials/header') %>
+<main>
+    <h1><%= title %></h1>
 
     <section class="about">
         <img src="/images/file_0000000025f071f69d7abb091d160317.png" alt="Photo of Taw Naylor" class="profile-photo">
@@ -39,5 +25,5 @@
             </ul>
         </div>
     </section>
-</body>
-</html>
+</main>
+<%- include('partials/footer') %>

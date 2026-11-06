@@ -101,13 +101,72 @@ body {
         }
     }
 
-    & > p {
-        padding: 22px 26px;
-        background: var(--card);
-        border-left: 6px solid var(--clay);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        font-size: 1.1rem;
+    main {
+        & > p {
+            padding: 22px 26px;
+            background: var(--card);
+            border-left: 6px solid var(--clay);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            font-size: 1.1rem;
+        }
+
+        & > img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .product-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 14px;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 22px;
+                background: var(--card);
+                border-left: 6px solid var(--moss);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                transition: transform 0.2s ease, border-color 0.2s ease;
+
+                &:hover {
+                    transform: translateX(4px);
+                    border-color: var(--clay);
+                }
+            }
+
+            .product-name {
+                font-weight: 600;
+                color: var(--forest-dark);
+            }
+
+            .product-price {
+                font-weight: 700;
+                color: var(--clay);
+            }
+        }
+    }
+
+    footer {
+        margin-top: 40px;
+        padding-top: 16px;
+        border-top: 2px solid var(--moss);
+        text-align: center;
+        color: var(--forest);
+        font-size: 0.9rem;
+
+        p {
+            margin: 0;
+        }
     }
 }
 
