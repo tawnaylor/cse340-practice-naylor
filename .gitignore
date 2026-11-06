@@ -1,3 +1,4 @@
+.env
 # Logs
 logs
 *.log
@@ -66,7 +67,6 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
 .env.*
 !.env.example
 
