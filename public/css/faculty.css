@@ -1,0 +1,132 @@
+/* Faculty directory styles using native CSS nesting */
+.faculty-sort {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    span {
+        color: #666;
+        font-weight: 500;
+    }
+
+    a {
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        color: var(--forest);
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            background: #e8f3ea;
+        }
+
+        &.active {
+            background: var(--forest);
+            color: white;
+        }
+    }
+}
+
+.faculty-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.25rem;
+
+    .faculty-card {
+        padding: 1.25rem 1.5rem;
+        background: var(--card);
+        border-top: 5px solid var(--moss);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            border-color: var(--clay);
+        }
+
+        h3 {
+            margin: 0 0 0.5rem 0;
+
+            a {
+                color: var(--forest-dark);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .faculty-title {
+            margin: 0;
+            font-weight: 600;
+            color: var(--clay);
+        }
+
+        .faculty-department {
+            margin: 0.25rem 0 0 0;
+            color: #555;
+        }
+    }
+}
+
+.faculty-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--card);
+    border-left: 6px solid var(--clay);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    h1 {
+        margin-bottom: 0.25rem;
+    }
+
+    .faculty-title {
+        margin: 0 0 1.5rem 0;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .faculty-info {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.75rem 1.5rem;
+        margin: 0;
+
+        dt {
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        dd {
+            margin: 0;
+
+            a {
+                color: var(--forest-dark);
+
+                &:hover {
+                    color: var(--clay);
+                }
+            }
+        }
+    }
+}
+
+.faculty-nav {
+    margin-top: 2rem;
+    text-align: center;
+
+    a {
+        color: var(--forest);
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

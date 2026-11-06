@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<main>
+    <div class="faculty-detail">
+        <h1><%= member.name %></h1>
+        <p class="faculty-title"><%= member.title %>, <%= member.department %></p>
+
+        <dl class="faculty-info">
+            <dt>Office</dt>
+            <dd><%= member.office %></dd>
+
+            <dt>Phone</dt>
+            <dd><a href="tel:<%= member.phone %>"><%= member.phone %></a></dd>
+
+            <dt>Email</dt>
+            <dd><a href="mailto:<%= member.email %>"><%= member.email %></a></dd>
+
+            <dt>Department</dt>
+            <dd><%= member.department %></dd>
+
+            <dt>Title</dt>
+            <dd><%= member.title %></dd>
+        </dl>
+    </div>
+
+    <p class="faculty-nav"><a href="/faculty">&larr; Back to Faculty Directory</a></p>
+</main>
+<%- include('../partials/footer') %>
