@@ -23,6 +23,11 @@ const PORT = process.env.PORT || 3000;
  */
 const app = express();
 
+// Behind a hosting proxy (such as Render) that terminates HTTPS, trust it so secure cookies are set
+if (NODE_ENV === 'production') {
+    app.set('trust proxy', 1);
+}
+
 // Initialize PostgreSQL session store
 const pgSession = connectPgSimple(session);
 
