@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/catalog.css">
-    <link rel="stylesheet" href="/css/faculty.css">
+
+    <%- renderStyles() %>
+    <%- renderScripts() %>
 
     <% if (NODE_ENV.includes('dev')) { %>
         <script>
@@ -34,6 +35,8 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/catalog">Course Catalog</a></li>
                 <li><a href="/faculty">Faculty Directory</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact/responses">Contact Responses</a></li>
                 <li><a href="/demo">Middleware Demo</a></li>
             </ul>
         </nav>
