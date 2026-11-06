@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="t">
+  <title id="t">A lost tent under a night sky with the number 404</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f3f36"/>
+      <stop offset="1" stop-color="#2f5d50"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#sky)"/>
+  <g fill="#f4efe6">
+    <circle cx="80" cy="60" r="2"/><circle cx="170" cy="110" r="2"/><circle cx="260" cy="45" r="2"/>
+    <circle cx="430" cy="80" r="2"/><circle cx="520" cy="130" r="2"/><circle cx="350" cy="150" r="2"/>
+  </g>
+  <circle cx="500" cy="70" r="28" fill="#f4efe6"/>
+  <text x="300" y="215" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="120" font-weight="700" fill="#d98e5f">404</text>
+  <path d="M0 330 Q150 290 300 330 T600 320 V400 H0 Z" fill="#8fb996"/>
+  <path d="M230 345 L300 255 L370 345 Z" fill="#d98e5f"/>
+  <path d="M300 255 L300 345 L335 345 Z" fill="#b87348"/>
+  <path d="M285 345 L300 305 L315 345 Z" fill="#1f3f36"/>
+</svg>

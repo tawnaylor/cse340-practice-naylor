@@ -120,6 +120,30 @@ body {
             box-shadow: var(--shadow);
         }
 
+        details {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: var(--card);
+            border-left: 6px solid var(--clay);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+
+            summary {
+                cursor: pointer;
+                font-weight: 700;
+                color: var(--forest-dark);
+            }
+
+            pre {
+                overflow-x: auto;
+                padding: 12px;
+                background: #f4f4f4;
+                border-radius: 8px;
+                font-size: 0.85rem;
+                white-space: pre-wrap;
+            }
+        }
+
         .product-list {
             margin: 0;
             padding: 0;
